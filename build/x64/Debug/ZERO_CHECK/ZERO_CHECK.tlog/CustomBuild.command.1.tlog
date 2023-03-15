@@ -1,0 +1,10 @@
+^C:\USERS\MATTI\ONEDRIVE\DESKTOP\3D_ENGINE\BUILD\CMAKEFILES\3B7D58EBF76FC999DA2822C64E2DA43C\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/matti/OneDrive/Desktop/3d_engine -BC:/Users/matti/OneDrive/Desktop/3d_engine/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/matti/OneDrive/Desktop/3d_engine/build/battaglia-navale.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

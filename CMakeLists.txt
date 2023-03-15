@@ -1,8 +1,18 @@
-cmake_minimum_required(VERSION 3.10)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS_RELEASE "-02")
+cmake_minimum_required(VERSION 2.84)
+project(battaglia-navale)
 
-project(3d_engine VERSION 1.0)
-add_executable(3d_engine)
-target_include_directories(3d_engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../bin/")
+#set(CMAKE_CXX_FLAGS "-O2")
+
+include_directories(OGL3D/include)
+
+add_library(source OGL3D/src/OGL3D/Window/OWindow.cpp OGL3D/src/OGL3D/Game/OGame.cpp)
+
+add_executable(main Game/main.cpp)
+
+#target_link_libraries(ship board coordinate)
+#target_link_libraries(board ship player coordinate)
+#target_link_libraries(player board ship coordinate)
+
+target_link_libraries(main source)
